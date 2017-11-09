@@ -1,0 +1,72 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "name of api management service"
+            }
+        },
+        "location": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "location of api management service"
+            }
+        },
+        "administratorEmail": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "The email address to receive all system notifications sent from API Management"
+            }
+        },
+        "organizationName": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "The name of the the organiation for use in the developer portal and e-mail notifications"
+            }
+        },
+        "sku": {
+            "type": "string",
+            "allowedValues": [
+                "Developer",
+                "Standard",
+                "Premium"
+            ],
+            "metadata": {
+                "description": "The pricing tier of this API Management service"
+            }
+        },
+        "skuCount": {
+            "type": "string",
+            "allowedValues": [
+                "1",
+                "2"
+            ],
+            "metadata": {
+                "description": "The instance size of this API Management service."
+            }
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2014-02-14",
+            "name": "[parameters('name')]",
+            "type": "Microsoft.ApiManagement/service",
+            "location": "[parameters('location')]",
+            "tags": {},
+            "properties": {
+                "sku": {
+                    "name": "[parameters('sku')]",
+                    "capacity": "[parameters('skuCount')]"
+                },
+                "publisherEmail": "[parameters('administratorEmail')]",
+                "publisherName": "[parameters('organizationName')]"
+            }
+        }
+    ]
+}

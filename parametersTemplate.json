@@ -1,0 +1,24 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "value": "$name"
+        },
+        "location": {
+            "value": "$location"
+        },
+        "administratorEmail": {
+            "value": "$administratorEmail"
+        },
+        "organizationName": {
+            "value": "$organizationName"
+        },
+        "sku": {
+            "value": "$sku"
+        },
+        "skuCount": {
+            "value": "$skuCount"
+        }
+    }
+}
