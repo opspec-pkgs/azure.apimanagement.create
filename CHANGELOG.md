@@ -5,4 +5,10 @@ All notable changes will be documented in this file in accordance with
 
 ## \[Unreleased]
 
+## \[1.0.1] - 2017-11-09
+
+### Changed
+
+- remove unnecessary `template` input
+
 ## \[1.0.0] - 2017-11-09
