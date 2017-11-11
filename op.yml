@@ -1,5 +1,5 @@
 name: github.com/opspec-pkgs/azure.apimanagement.create
-description: creates an azure api management service
+description: creates an azure api management instance
 inputs:
   subscriptionId:
     string:
@@ -55,10 +55,7 @@ inputs:
       constraints: { enum: [user, sp]}
       description: type of login; 'user' (default) or 'sp' for service principal
       default: user
-  template:
-    file:
-      default: /template.json
-version: 1.0.0
+version: 1.0.1
 run:
   serial:
     - container:
@@ -68,13 +65,13 @@ run:
         envVars: { name, location, administratorEmail, organizationName, sku, skuCount }
     - op:
         pkg: { ref: github.com/opspec-pkgs/azure.group.deployment.create#1.0.0 }
-        inputs: 
+        inputs:
           subscriptionId:
           loginId:
           loginSecret:
           resourceGroup:
           name:
           parameters:
-          template:
+          template: $(/template.json)
           loginTenantId:
           loginType:

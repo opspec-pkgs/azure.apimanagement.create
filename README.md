@@ -2,7 +2,7 @@
 
 # Problem statement
 
-create/update azure api management service
+create/update azure api management instance
 
 # Format
 
@@ -15,20 +15,20 @@ format
 ## install
 
 ```shell
-opctl pkg install github.com/opspec-pkgs/azure.apimanagement.create#1.0.0
+opctl pkg install github.com/opspec-pkgs/azure.apimanagement.create#1.0.1
 ```
 
 ## run
 
 ```
-opctl run github.com/opspec-pkgs/azure.apimanagement.create#1.0.0
+opctl run github.com/opspec-pkgs/azure.apimanagement.create#1.0.1
 ```
 
 ## compose
 
 ```yaml
 op:
-  pkg: { ref: github.com/opspec-pkgs/azure.apimanagement.create#1.0.0 }
+  pkg: { ref: github.com/opspec-pkgs/azure.apimanagement.create#1.0.1 }
   inputs:
     subscriptionId:
     loginId:
@@ -43,7 +43,6 @@ op:
     location:
     sku:
     skuCount:
-    template:
     # end optional args
 ```
 
