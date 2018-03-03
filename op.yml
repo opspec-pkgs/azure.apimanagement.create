@@ -61,7 +61,7 @@ run:
     - container:
         image: { ref: 'opspecpkgs/azure.apimanagement.create:1.0.0' }
         cmd: [ /cmd.sh ]
-        files: { /cmd.sh, /parametersTemplate.json, /parameters.json: parameters }
+        files: { /cmd.sh, /parametersTemplate.json, /parameters.json: $(parameters) }
         envVars: { name, location, administratorEmail, organizationName, sku, skuCount }
     - op:
         pkg: { ref: github.com/opspec-pkgs/azure.group.deployment.create#1.0.0 }
