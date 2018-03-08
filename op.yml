@@ -55,14 +55,23 @@ inputs:
       constraints: { enum: [user, sp]}
       description: type of login; 'user' (default) or 'sp' for service principal
       default: user
-version: 1.0.1
+version: 1.1.0
 run:
   serial:
     - container:
-        image: { ref: 'opspecpkgs/azure.apimanagement.create:1.0.0' }
+        image: { ref: 'opspecpkgs/azure.apimanagement.create:1.1.0' }
         cmd: [ /cmd.sh ]
-        files: { /cmd.sh, /parametersTemplate.json, /parameters.json: $(parameters) }
-        envVars: { name, location, administratorEmail, organizationName, sku, skuCount }
+        files:
+          /cmd.sh:
+          /parametersTemplate.json:
+          /parameters.json: $(parameters)
+        envVars:
+          name:
+          location:
+          administratorEmail:
+          organizationName:
+          sku:
+          skuCount:
     - op:
         pkg: { ref: github.com/opspec-pkgs/azure.group.deployment.create#1.0.0 }
         inputs:
